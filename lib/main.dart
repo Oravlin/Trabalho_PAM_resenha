@@ -21,6 +21,13 @@ class MyApp extends StatelessWidget{
 class HomePage extends StatelessWidget {
   const HomePage ({super.key});
 
+  void decrement(){
+    print("decrement");
+  }
+  void increment(){
+    print("increment");
+  }
+
 @override
 Widget build(BuildContext context) {
   return Scaffold(
@@ -39,6 +46,20 @@ Widget build(BuildContext context) {
           fontSize: 26,
           color: Color.fromARGB(255,4,87,154),
           ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(onPressed: decrement,
+            style: TextButton.styleFrom(backgroundColor: Colors.blue
+            ),
+
+            child: Text("Sair"),
+            ),
+            TextButton(onPressed: increment, 
+            child: Text("Entrar")
+            ),
+          ],
         ),
       ],
     ),
