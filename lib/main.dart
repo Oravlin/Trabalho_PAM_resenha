@@ -41,23 +41,49 @@ Widget build(BuildContext context) {
           fontWeight: FontWeight.w700
         ),
       ),
-      Text('0',
+      const Padding(padding: EdgeInsets.all(40),
+       child: Text('0',
         style: TextStyle(
-          fontSize: 26,
+          fontSize: 100,
           color: Color.fromARGB(255,4,87,154),
           ),
+        ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(onPressed: decrement,
-            style: TextButton.styleFrom(backgroundColor: Colors.blue
+            style: TextButton.styleFrom(backgroundColor: Colors.blue,
+            fixedSize: const Size(100,100),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            )
             ),
 
-            child: Text("Sair"),
+            child: Text("Sair",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize:16,
+              ),
+            )
             ),
+
+            SizedBox( width: 32,),
+
             TextButton(onPressed: increment, 
-            child: Text("Entrar")
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.blue,
+              fixedSize: const Size(100,100),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24)
+              )
+            ),
+            child: Text("Entrar",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize:16,
+            ),
+            ),
             ),
           ],
         ),
