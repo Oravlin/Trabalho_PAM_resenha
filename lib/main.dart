@@ -11,27 +11,42 @@ class MyApp extends StatelessWidget{
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext content){
+  Widget build(BuildContext context){
     return MaterialApp(
       home: HomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage ({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int contador = 0;
 
   void decrement(){
-    print("decrement");
+    contador--;
+    print(contador);
   }
   void increment(){
-    print("increment");
+    contador++;
+    print(contador);
   }
 
-@override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
   return Scaffold(
-    body: Column(
+   body: Container(
+    decoration: BoxDecoration(
+      image: DecorationImage(image: AssetImage('assets/images/fundo_resenha1.jpg'),
+      fit: BoxFit.cover,
+      ),
+    ),
+    child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:[
         Text('Pode entrar!',
@@ -41,8 +56,9 @@ Widget build(BuildContext context) {
           fontWeight: FontWeight.w700
         ),
       ),
-      const Padding(padding: EdgeInsets.all(40),
-       child: Text('0',
+      Padding(padding: EdgeInsets.all(40),
+       child: Text(
+        '$contador',
         style: TextStyle(
           fontSize: 100,
           color: Color.fromARGB(255,4,87,154),
@@ -78,6 +94,7 @@ Widget build(BuildContext context) {
                 borderRadius: BorderRadius.circular(24)
               )
             ),
+            
             child: Text("Entrar",
             style: TextStyle(
               color: Colors.black,
@@ -89,6 +106,9 @@ Widget build(BuildContext context) {
         ),
       ],
     ),
+   ),
   );
   }
 }
+
+
