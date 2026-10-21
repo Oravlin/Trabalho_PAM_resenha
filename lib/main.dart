@@ -6,7 +6,7 @@ void main() {
     );
 }
 
-// atalho para criar digite stless depois do enter
+// Atalho para criar Widget Stateless depois do enter
 class MyApp extends StatelessWidget{
   const MyApp({super.key});
 
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget{
   }
 }
 
+// Criando o Widget Stateful
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -51,6 +52,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+
+    // Conteúdo do Widget
    body: Container(
     decoration: BoxDecoration(
       image: DecorationImage(image: AssetImage('assets/images/fundo_resenha1.jpg'),
