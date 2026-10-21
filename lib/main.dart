@@ -31,13 +31,22 @@ class _HomePageState extends State<HomePage> {
   int contador = 0;
 
   void decrement(){
-    contador--;
+    setState((){
+      contador--;
+    });
+    
     print(contador);
   }
   void increment(){
-    contador++;
+    setState(() {
+      contador++;
+    });
     print(contador);
+    
   }
+
+  bool get isEmpty => contador == 0;
+  bool get isFull => contador == 15;
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +61,10 @@ class _HomePageState extends State<HomePage> {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:[
-        Text('Pode entrar!',
+        Text(isFull ? 'Lotado!' : 'Pode entrar!',
         style: TextStyle(
           fontSize: 26,
-          color: Color.fromARGB(255,4,87,154),
+          color: isFull ? Colors.red : Color.fromARGB(255,4,87,154),
           fontWeight: FontWeight.w700
         ),
       ),
@@ -71,8 +80,8 @@ class _HomePageState extends State<HomePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(onPressed: decrement,
-            style: TextButton.styleFrom(backgroundColor: Colors.blue,
+            TextButton(onPressed: isEmpty ? null : decrement,
+            style: TextButton.styleFrom(backgroundColor: isEmpty ?  Colors.blue.withOpacity(0.2) : Colors.blue,
             fixedSize: const Size(100,100),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),
@@ -89,9 +98,9 @@ class _HomePageState extends State<HomePage> {
 
             SizedBox( width: 32,),
 
-            TextButton(onPressed: increment, 
+            TextButton(onPressed: isFull ? null : increment, 
             style: TextButton.styleFrom(
-              backgroundColor: Colors.blue,
+              backgroundColor: isFull ? Colors.blue.withOpacity(.2) : Colors.blue,
               fixedSize: const Size(100,100),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24)
