@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      // o caba apaga a bandeira de debug (que atributo imenso)
+      // Apagando a bandeira de Debug
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
@@ -31,6 +31,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int contador = 0;
 
+ // Função de decrementar
   void decrement(){
     setState((){
       contador--;
@@ -38,6 +39,8 @@ class _HomePageState extends State<HomePage> {
     
     print(contador);
   }
+
+  // Função de incrementar
   void increment(){
     setState(() {
       contador++;
@@ -64,6 +67,7 @@ class _HomePageState extends State<HomePage> {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:[
+        // Caso estiver cheio, mostra "Lotado!". Senão, mostra "Pode entrar!"
         Text(isFull ? 'Lotado!' : 'Pode entrar!',
         style: TextStyle(
           fontSize: 26,
