@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      // o caba apaga a bandeira de debug (que atributo imenso)
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -46,6 +48,7 @@ class _HomePageState extends State<HomePage> {
       fit: BoxFit.cover,
       ),
     ),
+    
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:[
@@ -58,7 +61,7 @@ class _HomePageState extends State<HomePage> {
       ),
       Padding(padding: EdgeInsets.all(40),
        child: Text(
-        '$contador',
+        contador.toString(),
         style: TextStyle(
           fontSize: 100,
           color: Color.fromARGB(255,4,87,154),
